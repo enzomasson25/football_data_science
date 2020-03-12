@@ -9,11 +9,12 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 
-list_url['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p']
+list_lettre=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','z','oth']
 
-html = urlopen("https://www.premierleague.com/clubs")
-html_soup = BeautifulSoup(html, 'html.parser')
+rows = []
+for lettre in list_lettre :
+   html = urlopen("http://fchd.info/index"+lettre+".htm")
+   html_soup = BeautifulSoup(html, 'html.parser')
+   rows = rows + html_soup.findAll("li")
 
-
-rows = html_soup.findAll("clubName")
 print(len(rows))
