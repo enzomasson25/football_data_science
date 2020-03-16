@@ -30,11 +30,12 @@ for row in rows:
                 "champs": cells[5].text,    
                 "other_names": cells[6].text
             }
-            teams.append(team_entry)        
+            teams.append(team_entry)
         except ValueError:
             print("Ouch!")
-            
-df = pd.DataFrame(teams)
+        
+print(teams)
+df = pd.DataFrame(teams,columns=['squad','gender','comp','from','to','comps','champs','other_names'])
 
 df.to_csv("teams.csv")
 print("Done !")
