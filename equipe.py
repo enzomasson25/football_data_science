@@ -16,7 +16,6 @@ html_soup = BeautifulSoup(html, 'html.parser')
 
 
 #get every line with the string "tr" in it
-
 rows = html_soup.findAll("tr")
 
 #create the tab that will stock the informations about teams 
