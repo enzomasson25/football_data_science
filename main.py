@@ -9,34 +9,32 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 
-list_lettre=['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','y','z','oth']
 
-rows = []
-for lettre in list_lettre :
-   html = urlopen("http://fchd.info/index"+lettre+".htm")
-   html_soup = BeautifulSoup(html, 'html.parser')
-   rows = rows + html_soup.findAll("li")
-   
+html = urlopen("https://fbref.com/en/country/clubs/ENG/England-Football-Clubs")
+html_soup = BeautifulSoup(html, 'html.parser')
 
-def find_nth(haystack, needle, n):
-    start = haystack.find(needle)
-    while start >= 0 and n > 1:
-        start = haystack.find(needle, start+len(needle))
-        n -= 1
-    return start
-
+rows = html_soup.findAll("tr")
 teams = []
-
-for row in rows :
-    start_url=find_nth(str(row),"\"",1)
-    end_url=find_nth(str(row),"\"",2)
-    team=row.text
-    url=str(row)[start_url+1:end_url]
-    teams_entry = {
-                "nom": team,
-                "url": "http://fchd.info/"+url
-            } 
-    teams.append(teams_entry)  
-    
+for row in rows:
+    squad = row.find("a")
+    cells = row.findAll("td")
+    if (len(cells) == 7):
+        try:
+            team_entry = {
+                "squad": squad.text,
+                "gender": cells[0].text,
+                "comp": cells[1].text,
+                "from": cells[2].text,
+                "to": cells[3].text,
+                "comps": cells[4].text,
+                "champs": cells[5].text,    
+                "other_names": cells[6].text
+            }
+            teams.append(team_entry)        
+        except ValueError:
+            print("Ouch!")
+            
 df = pd.DataFrame(teams)
+
 df.to_csv("teams.csv")
+print("Done !")
