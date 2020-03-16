@@ -14,11 +14,14 @@ import pandas as pd
 html = urlopen("https://fbref.com/en/country/clubs/ENG/England-Football-Clubs")
 html_soup = BeautifulSoup(html, 'html.parser')
 
+
 #get every line with the string "tr" in it
+
 rows = html_soup.findAll("tr")
 
 #create the tab that will stock the informations about teams 
 teams = []
+
 #for each row in rows
 for row in rows:
     print(row)
@@ -60,6 +63,7 @@ for row in rows:
             teams.append(team_entry)
         except ValueError:
             print("Ouch!")
+
 
 #on veut passer de https://fbref.com/en/squads/18bb7c10/history/Arsenal-Stats
 #a https://fbref.com/en/squads/18bb7c10/Arsenal-Stats
