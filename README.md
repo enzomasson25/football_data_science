@@ -18,3 +18,6 @@ From this website we will gathered different informations to make a dataset :
  - Champs (number of time the squad was champion of their league)
  - Other_names (if the squad changed his name in the past)
 
+When you rune the file equipe.py, it generate a csv file containing the informations previously detailled, and here's what you get : 
+
+![Image of csv](img/yaktocat.png)
