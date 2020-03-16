@@ -22,7 +22,7 @@ for row in rows:
         try:
             team_entry = {
                 "squad": squad.text,
-                "url": squad['href'],
+                "url": "https://fbref.com" + squad['href'],
                 "gender": cells[0].text,
                 "comp": cells[1].text,
                 "from": cells[2].text,
@@ -34,9 +34,17 @@ for row in rows:
             teams.append(team_entry)
         except ValueError:
             print("Ouch!")
-        
+
 
 df = pd.DataFrame(teams,columns=['squad','url','gender','comp','from','to','comps','champs','other_names'])
+
+for team in teams:
+    print(team['url'])
+    html = urlopen(team['url'])
+    html_soup = BeautifulSoup(html, 'html.parser')
+    rows = html_soup.findAll("tr")
+
+
 
 df.to_csv("teams.csv")
 print("Done !")
