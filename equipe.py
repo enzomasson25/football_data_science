@@ -12,9 +12,9 @@ import pandas as pd
 
 html = urlopen("https://fbref.com/en/country/clubs/ENG/England-Football-Clubs")
 html_soup = BeautifulSoup(html, 'html.parser')
-
 rows = html_soup.findAll("tr")
 teams = []
+
 for row in rows:
     squad = row.find("a")
     cells = row.findAll("td")
@@ -38,9 +38,7 @@ for row in rows:
         except ValueError:
             print("Ouch!")
 
-#on veut passer de https://fbref.com/en/squads/18bb7c10/history/Arsenal-Stats
-#a https://fbref.com/en/squads/18bb7c10/Arsenal-Stats
-            
+
 
 df = pd.DataFrame(teams,columns=['squad','url','url_saison_actuelle','gender','comp','from','to','comps','champs','other_names'])
 
