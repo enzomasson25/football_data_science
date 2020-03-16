@@ -22,6 +22,7 @@ for row in rows:
         try:
             team_entry = {
                 "squad": squad.text,
+                "url": squad['href'],
                 "gender": cells[0].text,
                 "comp": cells[1].text,
                 "from": cells[2].text,
@@ -34,8 +35,8 @@ for row in rows:
         except ValueError:
             print("Ouch!")
         
-print(teams)
-df = pd.DataFrame(teams,columns=['squad','gender','comp','from','to','comps','champs','other_names'])
+
+df = pd.DataFrame(teams,columns=['squad','url','gender','comp','from','to','comps','champs','other_names'])
 
 df.to_csv("teams.csv")
 print("Done !")
