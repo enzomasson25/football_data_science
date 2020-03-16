@@ -20,4 +20,4 @@ From this website we will gathered different informations to make a dataset :
 
 When you rune the file equipe.py, it generate a csv file containing the informations previously detailled, and here's what you get : 
 
-![Image of csv](img/yaktocat.png)
+![Image of csv](img/csv.png)
