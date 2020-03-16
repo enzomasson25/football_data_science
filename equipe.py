@@ -19,10 +19,13 @@ for row in rows:
     squad = row.find("a")
     cells = row.findAll("td")
     if (len(cells) == 7):
+        debut_url=squad['href'][0:20]
+        fin_url=squad['href'][28:-1]
         try:
             team_entry = {
                 "squad": squad.text,
                 "url": "https://fbref.com" + squad['href'],
+                "url_saison_actuelle": "https://fbref.com" + debut_url + fin_url,
                 "gender": cells[0].text,
                 "comp": cells[1].text,
                 "from": cells[2].text,
@@ -35,15 +38,11 @@ for row in rows:
         except ValueError:
             print("Ouch!")
 
+#on veut passer de https://fbref.com/en/squads/18bb7c10/history/Arsenal-Stats
+#a https://fbref.com/en/squads/18bb7c10/Arsenal-Stats
+            
 
-df = pd.DataFrame(teams,columns=['squad','url','gender','comp','from','to','comps','champs','other_names'])
-
-for team in teams:
-    print(team['url'])
-    html = urlopen(team['url'])
-    html_soup = BeautifulSoup(html, 'html.parser')
-    rows = html_soup.findAll("tr")
-
+df = pd.DataFrame(teams,columns=['squad','url','url_saison_actuelle','gender','comp','from','to','comps','champs','other_names'])
 
 
 df.to_csv("teams.csv")
