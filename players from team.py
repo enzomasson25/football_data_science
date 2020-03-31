@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
+import csv
 
 
 def players_from_team(url, team_name):
@@ -32,5 +33,12 @@ def players_from_team(url, team_name):
     print("Done !")
 
 
-for row in pd.read_csv("teams.csv"):
-    players_from_team(row["url_saison_actuelle"], row["squad"])
+#for row in pd.read_csv("teams.csv"):
+#    print(row)
+#    players_from_team(row["url_saison_actuelle"], row["squad"])
+
+with open('teams.csv', newline='') as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+              print(row['url_saison_actuelle'], row['squad'])
+              players_from_team(row["url_saison_actuelle"], row["squad"])
