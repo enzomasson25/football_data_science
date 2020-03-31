@@ -74,7 +74,8 @@ def without_error_encoding(entry):
     if "—" in entry:
         entry = entry.replace(u"—", u"-")
     return entry
-    
+
+
 df["comp"] = df["comp"].apply(without_error_encoding)
 #convert this dataframe to a csv
 df.to_csv("teams.csv")
