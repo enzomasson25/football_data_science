@@ -23,7 +23,6 @@ teams = []
 
 #for each row in rows
 for row in rows:
-    print(row)
     #if the line contains the tag "a" this is the name of the squad (only this line contains this tag)
     squad = row.find("a")
     #search for every td tag in the line
@@ -70,6 +69,13 @@ for row in rows:
 #create a dataframe with the different informations we gathered
 df = pd.DataFrame(teams,columns=['squad','url','url_saison_actuelle','gender','comp','from','to','comps','champs','other_names'])
 
+#methods to avoid an encoding error that appears on column 'comp'
+def without_error_encoding(entry):
+    if "—" in entry:
+        entry = entry.replace(u"—", u"-")
+    return entry
+    
+df["comp"] = df["comp"].apply(without_error_encoding)
 #convert this dataframe to a csv
 df.to_csv("teams.csv")
 #print done
