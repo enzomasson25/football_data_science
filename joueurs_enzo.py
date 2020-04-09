@@ -9,14 +9,27 @@ from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 
-req = Request('https://sofifa.com/players?type=all&lg%5B0%5D=13&lg%5B1%5D=14&lg%5B2%5D=60&lg%5B3%5D=61&col=gu&sort=desc&showCol%5B%5D=ae&showCol%5B%5D=oa&showCol%5B%5D=pt&showCol%5B%5D=bp&showCol%5B%5D=gu&showCol%5B%5D=vl&showCol%5B%5D=rc&showCol%5B%5D=pac&showCol%5B%5D=sho&showCol%5B%5D=pas&showCol%5B%5D=dri&showCol%5B%5D=def&showCol%5B%5D=phy', headers={'User-Agent': 'Mozilla/5.0'})
+#url = 'https://sofifa.com/players?type=all&lg%5B0%5D=13&lg%5B1%5D=14&lg%5B2%5D=60&lg%5B3%5D=61&col=gu&sort=desc&showCol%5B%5D=ae&showCol%5B%5D=oa&showCol%5B%5D=pt&showCol%5B%5D=bp&showCol%5B%5D=gu&showCol%5B%5D=vl&showCol%5B%5D=rc&showCol%5B%5D=pac&showCol%5B%5D=sho&showCol%5B%5D=pas&showCol%5B%5D=dri&showCol%5B%5D=def&showCol%5B%5D=phy'
+
+url = "https://sofifa.com/players?offset=60"
+
+req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 html = urlopen(req).read()
 
 html_soup = BeautifulSoup(html, 'html.parser')
 rows = html_soup.findAll("tr")
 
+nextPage = html_soup.findAll("div", {"class": "pagination"})
+lien = nextPage[0].findAll("a")
+print(len(lien))
+for i in range(len(lien)):
+    print(type(lien[i]))
+    if(lien[i].span.text == 'Next'):
+        print(lien[i].findAll("href"))
+        print('end')
+        print("")
 
-
+"""
 players = []
 for row in rows:
     cells = row.findAll("td")
@@ -30,7 +43,7 @@ for row in rows:
                  "Overall_rating": cells[3].text,
                  "Potential": cells[4].text,
                  "Team": cells[5].a.text,
-                 "Contract": cells[5].div.div.text,    
+                 "Contract": cells[5].div.div.text,
                  "Best_position": cells[6].text,
                  "Growth": cells[7].text,
                  "Value": cells[8].text,
@@ -41,9 +54,9 @@ for row in rows:
                  "DRI": cells[13].text,
                  "DEF": cells[14].text,
                  "PHY": cells[15].text
-                 
+
             }
-            players.append(player_entry)        
+            players.append(player_entry)
         except ValueError:
             print("Ouch!")
 
@@ -58,4 +71,5 @@ df["Value"] = df["Value"].apply(without_error_encoding)
 df["Release_clause"] = df["Release_clause"].apply(without_error_encoding)
 
 df.to_csv("players.csv")
+"""
 print('Done !')
