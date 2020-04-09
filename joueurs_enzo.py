@@ -46,7 +46,7 @@ while True :
                      "Overall_rating": cells[3].text,
                      "Potential": cells[4].text,
                      "Team": cells[5].a.text,
-                     "Contract": cells[5].div.div.text,
+                     "Contract": cells[5].div.div.text[1:],
                      "Best_position": cells[6].text,
                      "Growth": cells[7].text,
                      "Value": cells[8].text,
