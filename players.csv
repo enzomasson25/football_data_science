@@ -1,46 +1,46 @@
 ,Nom,Position,Age,Overall_rating,Potential,Team,Contract,Best_position,Growth,Value,Release_clause,PAC,SHO,PAS,DRI,DEF,PHY
 0, R. Jones,ST,16,59,84,Peterborough United,"
 2019 ~ 2022",ST,25,Euros-350K,Euros-963K,92,56,50,58,27,56
-1, K. Baah,ST,16,53,77,Rochdale,"
-2019 ~ 2023",CAM,24,Euros-130K,Euros-358K,74,49,46,57,35,45
-2, J. Madelin,CB,17,49,73,AFC Wimbledon,"
+1, J. Madelin,CB,17,49,73,AFC Wimbledon,"
 2019 ~ 2021",CB,24,Euros-60K,Euros-165K,57,23,33,34,48,56
-3, N. Agho,ST,16,52,76,Port Vale,"
+2, N. Agho,ST,16,52,76,Port Vale,"
 2018 ~ 2023",ST,24,Euros-110K,Euros-303K,76,48,34,47,17,67
-4, A. Broja,ST,17,61,84,Chelsea,"
+3, A. Broja,ST,17,61,84,Chelsea,"
 2020 ~ 2022",ST,23,Euros-550K,Euros-1.6M,71,59,45,58,28,63
-5, J. Branthwaite,CB,17,57,80,Everton,"
+4, J. Branthwaite,CB,17,57,80,Everton,"
 2020 ~ 2022",CB,23,Euros-210K,Euros-609K,58,29,36,41,56,61
-6, T. Harwood-Bellis,CB,17,60,83,Manchester City,"
+5, T. Harwood-Bellis,CB,17,60,83,Manchester City,"
 2019 ~ 2021",CB,23,Euros-425K,Euros-1.2M,63,33,46,51,60,61
-7, T. Doyle,CM,17,62,85,Manchester City,"
+6, T. Doyle,CM,17,62,85,Manchester City,"
 2019 ~ 2021",CM,23,Euros-650K,Euros-1.9M,60,47,62,63,51,61
-8, G. Bazunu,GK,17,59,82,Manchester City,"
+7, G. Bazunu,GK,17,59,82,Manchester City,"
 2019 ~ 2023",GK,23,Euros-275K,Euros-784K,60,59,56,60,27,59
-9, M. Fagan-Walcott,CB,17,58,81,Tottenham Hotspur,"
-2018 ~ 2021",CB,23,Euros-250K,Euros-725K,64,29,42,46,55,63
-10, A. Mighten,RM,17,57,80,Nottingham Forest,"
+8, M. Fagan-Walcott,CB,17,59,82,Tottenham Hotspur,"
+2018 ~ 2021",CB,23,Euros-325K,Euros-943K,64,29,43,46,56,64
+9, A. Mighten,RM,17,57,80,Nottingham Forest,"
 2018 ~ 2021",RM,23,Euros-230K,Euros-667K,84,48,45,65,27,44
-11, T. Rushesha,RB,16,52,75,Swansea City,"
+10, T. Rushesha,RB,16,52,75,Swansea City,"
 2018 ~ 2022",RB,23,Euros-100K,Euros-290K,74,29,42,46,49,51
-12, J. Rowland,CAM,17,57,80,Shrewsbury,"
+11, J. Rowland,CAM,17,57,80,Shrewsbury,"
 2018 ~ 2021",RM,23,Euros-230K,Euros-633K,72,48,53,59,34,54
-13, L. Hasani,CDM,17,49,72,Doncaster Rovers,"
+12, L. Hasani,CDM,17,49,72,Doncaster Rovers,"
 2019 ~ 2022",CDM,23,Euros-60K,Euros-165K,53,32,44,49,45,52
-14, H. Mnoga,RB,17,54,77,Portsmouth,"
+13, H. Mnoga,RB,17,54,77,Portsmouth,"
 2018 ~ 2020",RB,23,Euros-140K,Euros-385K,77,32,42,53,47,68
-15, Fabio Lopes,ST,17,52,75,Oxford United,"
+14, Fabio Lopes,ST,17,52,75,Oxford United,"
 2018 ~ 2020",CAM,23,Euros-110K,Euros-303K,77,49,42,56,17,39
-16, L. Matheson,RB,16,60,83,Rochdale,"
+15, L. Matheson,RB,16,60,83,Rochdale,"
 2020 ~ 2022",RWB,23,Euros-425K,Euros-1.2M,76,36,53,61,55,52
+16, K. Baah,RW,16,55,78,Rochdale,"
+2019 ~ 2023",RM,23,Euros-170K,Euros-468K,77,49,47,58,39,47
 17, J. Hill,CB,17,52,75,Fleetwood Town,"
 2019 ~ 2021",CB,23,Euros-100K,Euros-275K,54,22,28,29,52,59
 18, T. Anjorin,CAM,17,58,80,Chelsea,"
 2018 ~ 2021",CAM,22,Euros-275K,Euros-798K,63,48,59,56,44,54
 19, I. Maatsen,LB,17,58,80,Chelsea,"
 2019 ~ 2021",LB,22,Euros-250K,Euros-725K,66,35,54,58,56,53
-20, N. Williams,RB,18,62,84,Liverpool,"
-2018 ~ 2022",RWB,22,Euros-650K,Euros-1.9M,75,36,55,62,60,55
+20, N. Williams,RB,18,64,86,Liverpool,"
+2018 ~ 2022",RB,22,Euros-950K,Euros-2.7M,75,36,56,63,61,55
 21, K. Hoever,RB,17,62,84,Liverpool,"
 2018 ~ 2022",RB,22,Euros-625K,Euros-1.8M,72,36,57,64,61,62
 22, L. Cundle,CM,17,54,76,Wolverhampton Wanderers,"
@@ -73,49 +73,49 @@
 2017 ~ 2021",LB,21,Euros-425K,Euros-1.2M,77,29,45,53,58,58
 36, C. Campbell,CAM,16,59,80,Wolverhampton Wanderers,"
 2019 ~ 2022",RM,21,Euros-350K,Euros-1M,77,53,55,64,41,49
-37, T. Taylor,CDM,18,53,74,Wolverhampton Wanderers,"
-2017 ~ 2020",CDM,21,Euros-130K,Euros-377K,58,39,49,49,48,60
-38, L. Richards,CB,17,54,75,Wolverhampton Wanderers,"
+37, L. Richards,CB,17,54,75,Wolverhampton Wanderers,"
 2018 ~ 2021",CB,21,Euros-140K,Euros-406K,67,41,48,48,51,62
-39, N. Wood,CB,17,61,82,Middlesbrough,"
+38, N. Wood,CB,17,61,82,Middlesbrough,"
 2018 ~ 2020",CB,21,Euros-525K,Euros-1.5M,67,24,39,43,61,62
-40, B. Johnson,CAM,18,60,81,Nottingham Forest,"
+39, B. Johnson,CAM,18,60,81,Nottingham Forest,"
 2019 ~ 2023",CAM,21,Euros-475K,Euros-1.4M,72,52,57,61,40,53
-41, N. Collins,CB,18,63,84,Stoke City,"
+40, N. Collins,CB,18,63,84,Stoke City,"
 2018 ~ 2024",CB,21,Euros-775K,Euros-2.2M,62,26,43,47,61,72
-42, H. Burrows,CM,17,50,71,Peterborough United,"
+41, H. Burrows,CM,17,50,71,Peterborough United,"
 2019 ~ 2021",CM,21,Euros-60K,Euros-165K,64,34,47,51,47,42
-43, K. Lofthouse,RW,18,52,73,Oxford United,"
+42, K. Lofthouse,RW,18,52,73,Oxford United,"
 2019 ~ 2020",RM,21,Euros-110K,Euros-303K,76,48,41,57,22,40
-44, J. Nolan,LM,18,54,75,Walsall,"
+43, J. Nolan,LM,18,54,75,Walsall,"
 2020 ~ 2021",LW,21,Euros-150K,Euros-413K,72,54,46,55,24,43
-45, J. Birch,CM,18,52,72,Aston Villa,"
+44, J. Birch,CM,18,52,72,Aston Villa,"
 2017 ~ 2022",CAM,20,Euros-100K,Euros-290K,66,38,50,52,45,54
-46, B. Gilmour,CM,18,66,86,Chelsea,"
+45, B. Gilmour,CM,18,66,86,Chelsea,"
 2018 ~ 2023",CAM,20,Euros-1.3M,Euros-3.8M,59,51,68,67,53,44
-47, C. Jones,CM,18,65,85,Liverpool,"
+46, C. Jones,CM,18,65,85,Liverpool,"
 2018 ~ 2024",CAM,20,Euros-1.1M,Euros-3.1M,66,62,63,70,48,60
-48, P. Glatzel,ST,18,60,80,Liverpool,"
+47, P. Glatzel,ST,18,60,80,Liverpool,"
 2019 ~ 2023",ST,20,Euros-425K,Euros-1.2M,68,60,51,59,30,49
-49, F. Nmecha,CAM,18,63,83,Manchester City,"
+48, F. Nmecha,CAM,18,63,83,Manchester City,"
 2017 ~ 2021",CAM,20,Euros-750K,Euros-2.1M,75,54,61,63,45,55
-50, J. Bowden,CDM,17,60,80,Tottenham Hotspur,"
+49, J. Bowden,CDM,17,60,80,Tottenham Hotspur,"
 2017 ~ 2023",CDM,20,Euros-375K,Euros-1.1M,63,46,57,58,60,50
-51, B. Lyons-Foster,CB,18,58,78,Tottenham Hotspur,"
+50, B. Lyons-Foster,CB,18,58,78,Tottenham Hotspur,"
 2018 ~ 2020",CB,20,Euros-250K,Euros-725K,59,28,40,39,57,62
-52, Bernardo Rosa,CAM,18,51,71,West Ham United,"
+51, Bernardo Rosa,CAM,18,51,71,West Ham United,"
 2019 ~ 2020",RM,20,Euros-80K,Euros-232K,62,43,46,58,31,44
+52, Sidnei Tavares,CAM,17,60,80,Leicester City,"
+2019 ~ 2021",CAM,20,Euros-400K,Euros-1.2M,70,52,56,64,47,47
 53, E. Loiodice,CM,18,65,85,Wolverhampton Wanderers,"
 Jun 30, 2020 On Loan",CAM,20,Euros-1.1M,Euros-0,57,46,61,71,57,49
 54, T. Perry,CM,17,56,76,Wolverhampton Wanderers,"
 2018 ~ 2020",CAM,20,Euros-180K,Euros-522K,68,52,54,58,47,57
 55, A. Søndergaard,GK,18,55,75,Wolverhampton Wanderers,"
 2018 ~ 2021",GK,20,Euros-140K,Euros-406K,57,54,55,55,20,53
-56, R. Nya,CB,19,55,75,Wolverhampton Wanderers,"
-2019 ~ 2022",CB,20,Euros-160K,Euros-464K,74,40,51,59,52,59
-57, B. Aveiro,ST,17,57,77,Crystal Palace,"
+56, T. Taylor,CDM,18,54,74,Wolverhampton Wanderers,"
+2017 ~ 2020",CDM,20,Euros-130K,Euros-377K,58,41,50,49,49,60
+57, R. Nya,CB,19,56,76,Wolverhampton Wanderers,"
+2019 ~ 2022",CB,20,Euros-180K,Euros-522K,74,40,51,59,53,60
+58, B. Aveiro,ST,17,57,77,Crystal Palace,"
 2018 ~ 2020",CAM,20,Euros-210K,Euros-609K,73,56,51,65,25,43
-58, S. Brynn,GK,18,53,73,Middlesbrough,"
-2017 ~ 2020",GK,20,Euros-100K,Euros-290K,48,55,58,57,31,50
 59, R. Burrell,ST,18,55,75,Middlesbrough,"
 2019 ~ 2022",ST,20,Euros-170K,Euros-493K,76,54,37,55,16,48
