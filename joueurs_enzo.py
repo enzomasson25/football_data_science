@@ -56,8 +56,8 @@ while True :
                      "PAS": cells[12].text,
                      "DRI": cells[13].text,
                      "DEF": cells[14].text,
-                     "PHY": cells[15].text
-
+                     "PHY": cells[15].text,
+                     "Lien_photo": cells[0].figure.img['data-src']
                 }
                 players.append(player_entry)
             except ValueError:
@@ -66,7 +66,7 @@ while True :
 
 
     if(test_fin_list_joueurs(html_soup)):
-        df = pd.DataFrame(players, columns=['Nom','Position','Age','Overall_rating','Potential','Team','Contract','Best_position','Growth','Value','Release_clause','PAC','SHO','PAS','DRI','DEF','PHY'])
+        df = pd.DataFrame(players, columns=['Nom','Position','Age','Overall_rating','Potential','Team','Contract','Best_position','Growth','Value','Release_clause','PAC','SHO','PAS','DRI','DEF','PHY','Lien_photo'])
         df["Value"] = df["Value"].apply(without_error_encoding)
         df["Release_clause"] = df["Release_clause"].apply(without_error_encoding)
 
