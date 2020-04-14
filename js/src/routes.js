@@ -14,32 +14,8 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Buttons from "views/components/Buttons.jsx";
-import Calendar from "views/Calendar.jsx";
-import Charts from "views/Charts.jsx";
 import Dashboard from "views/Dashboard.jsx";
-import ExtendedForms from "views/forms/ExtendedForms.jsx";
-import ExtendedTables from "views/tables/ExtendedTables.jsx";
-import FullScreenMap from "views/maps/FullScreenMap.jsx";
-import GoogleMaps from "views/maps/GoogleMaps.jsx";
-import GridSystem from "views/components/GridSystem.jsx";
-import Icons from "views/components/Icons.jsx";
-import LockScreen from "views/pages/LockScreen.jsx";
-import Login from "views/pages/Login.jsx";
-import Notifications from "views/components/Notifications.jsx";
-import Panels from "views/components/Panels.jsx";
-import ReactTables from "views/tables/ReactTables.jsx";
-import Register from "views/pages/Register.jsx";
-import RegularForms from "views/forms/RegularForms.jsx";
-import RegularTables from "views/tables/RegularTables.jsx";
-import SweetAlert from "views/components/SweetAlert.jsx";
-import Timeline from "views/pages/Timeline.jsx";
-import Typography from "views/components/Typography.jsx";
-import UserProfile from "views/pages/UserProfile.jsx";
-import ValidationForms from "views/forms/ValidationForms.jsx";
-import VectorMap from "views/maps/VectorMap.jsx";
-import Widgets from "views/Widgets.jsx";
-import Wizard from "views/forms/Wizard.jsx";
+import League from "./views/League";
 
 const routes = [
     {
@@ -47,6 +23,50 @@ const routes = [
         name: "Dashboard",
         icon: "nc-icon nc-bank",
         component: Dashboard,
+        layout: "/admin"
+    },
+    {
+        path: "/premier-league",
+        name: "Premier League",
+        icon: "nc-icon nc-bank",
+        component: League,
+        props: {
+            league: "Premier League",
+            image: "https://obamabcn.com/wp-content/uploads/2019/11/logo-premier-league.jpg",
+        },
+        layout: "/admin"
+    },
+    {
+        path: "/efl-championship",
+        name: "EFL Championship",
+        icon: "nc-icon nc-bank",
+        component: League,
+        props: {
+            league: "EFL Championship",
+            image: "https://static.ostadium.com/galleries/efl-championship-illus.jpg",
+        },
+        layout: "/admin"
+    },
+    {
+        path: "/efl-league-one",
+        name: "EFL League One",
+        icon: "nc-icon nc-bank",
+        component: League,
+        props: {
+            league: "EFL League One",
+            image: "https://www.scunthorpe-united.co.uk/contentassets/c0c95f40218748a8995ac676770fc02b/skybet22.jpg/Large",
+        },
+        layout: "/admin"
+    },
+    {
+        path: "/efl-league-two",
+        name: "EFL League Two",
+        icon: "nc-icon nc-bank",
+        component: League,
+        props: {
+            league: "EFL League Two",
+            image: "https://www.efl.com/contentassets/aab4ff03e22a460e8226c902dc69d430/l2-16x9549-3222841_1600x900/Large",
+        },
         layout: "/admin"
     },
 ]

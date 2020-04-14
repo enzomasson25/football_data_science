@@ -17,12 +17,11 @@
 import React from "react";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-import { Route, Switch } from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 
 import AdminNavbar from "components/Navbars/AdminNavbar.jsx";
 import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
-import FixedPlugin from "components/FixedPlugin/FixedPlugin.jsx";
 
 import routes from "routes.js";
 
@@ -67,7 +66,7 @@ class Admin extends React.Component {
         return (
           <Route
             path={prop.path}
-            component={prop.component}
+            component={(props) => <prop.component {...props} {...prop.props}/>}
             key={key}
           />
         );

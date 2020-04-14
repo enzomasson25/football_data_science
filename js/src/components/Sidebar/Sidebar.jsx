@@ -108,7 +108,7 @@ class Sidebar extends React.Component {
       }
       return (
         <li className={this.activeRoute(prop.layout + prop.path)} key={key}>
-          <NavLink to={prop.layout + prop.path} activeClassName="">
+          <NavLink to={prop.path} activeClassName="">
             {prop.icon !== undefined ? (
               <>
                 <i className={prop.icon} />
@@ -162,56 +162,14 @@ class Sidebar extends React.Component {
             </div>
           </a>
           <a
-            href="https://www.creative-tim.com"
+            href="https://github.com/enzomasson25/football_data_science"
             className="simple-text logo-normal"
           >
-            Creative Tim
+            Stats Foot
           </a>
         </div>
 
         <div className="sidebar-wrapper" ref="sidebar">
-          <div className="user">
-            <div className="photo">
-              <img src={avatar} alt="Avatar" />
-            </div>
-            <div className="info">
-              <a
-                href="#pablo"
-                data-toggle="collapse"
-                aria-expanded={this.state.openAvatar}
-                onClick={() =>
-                  this.setState({ openAvatar: !this.state.openAvatar })
-                }
-              >
-                <span>
-                  Chet Faker
-                  <b className="caret" />
-                </span>
-              </a>
-              <Collapse isOpen={this.state.openAvatar}>
-                <ul className="nav">
-                  <li>
-                    <NavLink to="/admin/user-profile" activeClassName="">
-                      <span className="sidebar-mini-icon">MP</span>
-                      <span className="sidebar-normal">My Profile</span>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/admin/user-profile" activeClassName="">
-                      <span className="sidebar-mini-icon">EP</span>
-                      <span className="sidebar-normal">Edit Profile</span>
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="/admin/user-profile" activeClassName="">
-                      <span className="sidebar-mini-icon">S</span>
-                      <span className="sidebar-normal">Settings</span>
-                    </NavLink>
-                  </li>
-                </ul>
-              </Collapse>
-            </div>
-          </div>
           <Nav>{this.createLinks(this.props.routes)}</Nav>
         </div>
       </div>
