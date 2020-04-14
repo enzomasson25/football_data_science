@@ -9,6 +9,7 @@ from urllib.request import Request, urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 import sys
+import time
 
 offset = 0
 players = []
@@ -36,8 +37,9 @@ while True :
 
     for row in rows:
         cells = row.findAll("td")
-
+        
         if (len(cells) == 17):
+            
             try:
                 player_entry = {
                      "Nom": cells[1].a.text,
@@ -70,7 +72,7 @@ while True :
         df["Value"] = df["Value"].apply(without_error_encoding)
         df["Release_clause"] = df["Release_clause"].apply(without_error_encoding)
 
-        df.to_csv("players.csv")
+        df.to_csv("js/public/players.csv")
         print('Done !')
         sys.exit('Fin de la récolte des joueurs.')
     else:
