@@ -39,7 +39,6 @@ while True :
         cells = row.findAll("td")
         
         if (len(cells) == 17):
-            
             try:
                 player_entry = {
                      "Nom": cells[1].a.text,
@@ -61,6 +60,31 @@ while True :
                      "PHY": cells[15].text,
                      "Lien_photo": cells[0].figure.img['data-src']
                 }
+                url = 'https://sofifa.com'+str(cells[1].a['href'][:-7])+'live'
+                req = Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+                html = urlopen(req).read()
+                html_soup2 = BeautifulSoup(html, 'html.parser')
+                rowsStats = html_soup2.findAll("tr")
+                for elem in rowsStats:
+                    infos = elem.findAll("td")
+                    try:
+                        if (len(infos)==13 and infos[0].a.text == '2019/2020'):
+                            player_entry.update([
+                                    ('League',infos[2].span.text),
+                                    ('Min',infos[3].text),
+                                    ('App',infos[4].text),
+                                    ('Lineup start',infos[5].text),
+                                    ('Sub in',infos[6].text),
+                                    ('Sub out',infos[7].text),
+                                    ('Sub on bench',infos[8].text),
+                                    ('Goal',infos[9].text),
+                                    ('Yellow card',infos[10].text),
+                                    ('Yellow 2nd card',infos[11].text),
+                                    ('Red card',infos[12].text)
+                                    
+                                    ])
+                    except Exception :
+                        pass
                 players.append(player_entry)
             except ValueError:
                 print("Ouch!")
@@ -68,7 +92,7 @@ while True :
 
 
     if(test_fin_list_joueurs(html_soup)):
-        df = pd.DataFrame(players, columns=['Nom','Position','Age','Overall_rating','Potential','Team','Contract','Best_position','Growth','Value','Release_clause','PAC','SHO','PAS','DRI','DEF','PHY','Lien_photo'])
+        df = pd.DataFrame(players, columns=['Nom','Position','Age','Overall_rating','Potential','Team','Contract','Best_position','Growth','Value','Release_clause','PAC','SHO','PAS','DRI','DEF','PHY','Lien_photo','League','Min','App','Lineup start','Sub in','Sub out','Sub on bench','Goal','Yellow card','Yellow 2nd card','Red card'])
         df["Value"] = df["Value"].apply(without_error_encoding)
         df["Release_clause"] = df["Release_clause"].apply(without_error_encoding)
 
