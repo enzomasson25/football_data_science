@@ -43,7 +43,7 @@ import Wizard from "views/forms/Wizard.jsx";
 
 const routes = [
     {
-        path: "/dashboard",
+        path: "/home",
         name: "Dashboard",
         icon: "nc-icon nc-bank",
         component: Dashboard,
