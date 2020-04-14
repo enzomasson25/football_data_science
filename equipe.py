@@ -10,6 +10,7 @@ from urllib.request import urlopen
 from bs4 import BeautifulSoup
 import pandas as pd
 
+
 # instantiate the BeautifulSoup to find data on the website
 html = urlopen("https://fbref.com/en/country/clubs/ENG/England-Football-Clubs")
 html_soup = BeautifulSoup(html, 'html.parser')
@@ -19,9 +20,10 @@ rows = html_soup.findAll("tr")
 
 # create the tab that will stock the informations about teams
 teams = []
-
+i=0
 # for each row in rows
 for row in rows:
+    i=i+1
     # if the line contains the tag "a" this is the name of the squad (only this line contains this tag)
     squad = row.find("a")
     # search for every td tag in the line
@@ -32,6 +34,13 @@ for row in rows:
         debut_url = squad['href'][0:20]
         # the end of the url of the squad is the last characters from the index 28
         fin_url = squad['href'][28:-1]
+        
+        html = urlopen("https://fbref.com" + squad['href'])
+        html_soup = BeautifulSoup(html, 'html.parser')
+        
+        images = html_soup.findAll("img")
+
+        print(str(round((i/877)*100)) + '%')
         try:
             # different entries for the team
             team_entry = {
@@ -54,20 +63,23 @@ for row in rows:
                 # number of time the squad was champion of their league
                 "champs": cells[5].text,
                 # if the team changes it name
-                "other_names": cells[6].text
+                "other_names": cells[6].text,
+                
+                "logo": images[1]['src']
             }
             # add the information about the squad
             teams.append(team_entry)
         except ValueError:
             print("Ouch!")
-
+    
+   
 # on veut passer de https://fbref.com/en/squads/18bb7c10/history/Arsenal-Stats
 # a https://fbref.com/en/squads/18bb7c10/Arsenal-Stats
 
 # create a dataframe with the different informations we gathered
 df = pd.DataFrame(teams,
                   columns=['squad', 'url', 'url_saison_actuelle', 'gender', 'comp', 'from', 'to', 'comps', 'champs',
-                           'other_names'])
+                           'other_names','logo'])
 
 
 # methods to avoid an encoding error that appears on column 'comp'
@@ -79,6 +91,6 @@ def without_error_encoding(entry):
 
 df["comp"] = df["comp"].apply(without_error_encoding)
 # convert this dataframe to a csv
-df.to_csv("teams.csv")
+df.to_csv("js/public/teams.csv")
 # print done
 print("Done !")
