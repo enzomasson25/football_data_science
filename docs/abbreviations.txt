@@ -1,0 +1,20 @@
+pac = vitesse
+sho = tir
+pas = passe
+dri = drible
+def = defense
+phy = physique
+
+CAM – Central attacking midfielder
+CB – Centre back
+CDM – Central defensive midfielder
+CF – Center forward
+CM – Centre midfielder
+GK – Goalkeeper
+LB – Left back
+LM – Left midfielder
+LW – Left winger (typically more attack-minded than a left midfielder)
+RB – Right back
+RM – Right midfielder
+RW – Right winger (a more attacking option than a right midfielder)
+ST – Striker
