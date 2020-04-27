@@ -17,7 +17,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {createBrowserHistory} from "history";
-import {Redirect, Route, Router, Switch} from "react-router-dom";
+import {Route, Router} from "react-router-dom";
 import AdminLayout from "layouts/Admin.jsx";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -29,10 +29,7 @@ const hist = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={hist}>
-    <Switch>
       <Route path="/" render={props => <AdminLayout {...props} />} />
-      <Redirect to="/home" />
-    </Switch>
   </Router>,
   document.getElementById("root")
 );

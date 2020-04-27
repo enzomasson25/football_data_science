@@ -24,6 +24,7 @@ import Footer from "components/Footer/Footer.jsx";
 import Sidebar from "components/Sidebar/Sidebar.jsx";
 
 import routes from "routes.js";
+import { Redirect } from "react-router-dom";
 
 var ps;
 
@@ -35,12 +36,15 @@ class Admin extends React.Component {
       activeColor: "info",
       sidebarMini: false
     };
+    this.mainPanel = React.createRef();
   }
   componentDidMount() {
     if (navigator.platform.indexOf("Win") > -1) {
       document.documentElement.className += " perfect-scrollbar-on";
       document.documentElement.classList.remove("perfect-scrollbar-off");
-      ps = new PerfectScrollbar(this.refs.mainPanel);
+      ps = new PerfectScrollbar(this.mainPanel.current, {
+        wheelPropagation: true,
+      });
     }
   }
   componentWillUnmount() {
@@ -54,7 +58,7 @@ class Admin extends React.Component {
     if (e.history.action === "PUSH") {
       document.documentElement.scrollTop = 0;
       document.scrollingElement.scrollTop = 0;
-      this.refs.mainPanel.scrollTop = 0;
+      this.mainPanel.current.scrollTop = 0;
     }
   }
   getRoutes = routes => {
@@ -66,7 +70,7 @@ class Admin extends React.Component {
         return (
           <Route
             path={prop.path}
-            component={(props) => <prop.component {...props} {...prop.props}/>}
+            component={(props) => <prop.component mainPanel={this.mainPanel} {...props} {...prop.props}/>}
             key={key}
           />
         );
@@ -98,9 +102,12 @@ class Admin extends React.Component {
           bgColor={this.state.backgroundColor}
           activeColor={this.state.activeColor}
         />
-        <div className="main-panel" ref="mainPanel">
+        <div className="main-panel" id="main-planel" ref={this.mainPanel}>
           <AdminNavbar {...this.props} handleMiniClick={this.handleMiniClick} />
-          <Switch>{this.getRoutes(routes)}</Switch>
+          <Switch>
+            {this.getRoutes(routes)}
+            <Redirect to="/home" />
+          </Switch>
           {// we don't want the Footer to be rendered on full screen maps page
           this.props.location.pathname.indexOf("full-screen-map") !==
           -1 ? null : (
