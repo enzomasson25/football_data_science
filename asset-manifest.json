@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/football_data_science/static/css/main.6fef0ba9.chunk.css",
+    "main.js": "/football_data_science/static/js/main.af8f196f.chunk.js",
+    "main.js.map": "/football_data_science/static/js/main.af8f196f.chunk.js.map",
+    "runtime~main.js": "/football_data_science/static/js/runtime~main.75cdcae0.js",
+    "runtime~main.js.map": "/football_data_science/static/js/runtime~main.75cdcae0.js.map",
+    "static/css/2.367471c6.chunk.css": "/football_data_science/static/css/2.367471c6.chunk.css",
+    "static/js/2.677ae5cb.chunk.js": "/football_data_science/static/js/2.677ae5cb.chunk.js",
+    "static/js/2.677ae5cb.chunk.js.map": "/football_data_science/static/js/2.677ae5cb.chunk.js.map",
+    "index.html": "/football_data_science/index.html",
+    "precache-manifest.9b80475e41ccac602b9946f58f7ce1e7.js": "/football_data_science/precache-manifest.9b80475e41ccac602b9946f58f7ce1e7.js",
+    "service-worker.js": "/football_data_science/service-worker.js",
+    "static/css/2.367471c6.chunk.css.map": "/football_data_science/static/css/2.367471c6.chunk.css.map",
+    "static/css/main.6fef0ba9.chunk.css.map": "/football_data_science/static/css/main.6fef0ba9.chunk.css.map",
+    "static/media/ayo-ogunseinde-2.jpg": "/football_data_science/static/media/ayo-ogunseinde-2.bfc688ca.jpg",
+    "static/media/erik-lucatero-2.jpg": "/football_data_science/static/media/erik-lucatero-2.2051e0e8.jpg",
+    "static/media/joe-gardner-2.jpg": "/football_data_science/static/media/joe-gardner-2.76ff47ae.jpg",
+    "static/media/kaci-baum-2.jpg": "/football_data_science/static/media/kaci-baum-2.e06d84cb.jpg",
+    "static/media/paper-dashboard.scss?v=1.1.0": "/football_data_science/static/media/nucleo-icons.f32ed5ad.eot",
+    "static/media/react-logo.png": "/football_data_science/static/media/react-logo.79075919.png"
+  }
+}
