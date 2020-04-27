@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 import useAxios from 'axios-hooks'
 import Papa from 'papaparse'
 import {Button, Card, CardBody, CardImg, CardTitle, Col, Row} from 'reactstrap';
 import {createUseStyles} from "react-jss";
 import {Parallax} from "react-parallax";
+import {UrlProvider} from "../contexts";
 
 const useStyles = createUseStyles({
     parallax: {
@@ -26,9 +27,10 @@ const useStyles = createUseStyles({
 })
 
 const League = ({league, image, mainPanel}) => {
+    const url = useContext(UrlProvider)
     const classes = useStyles()
     const [{ csv, loading, error }] = useCSV(
-        '/teams.csv',
+        url + '/teams.csv',
         league
     )
 

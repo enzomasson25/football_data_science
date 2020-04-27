@@ -17,19 +17,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {createBrowserHistory} from "history";
-import {Route, Router} from "react-router-dom";
+import {HashRouter, Route} from "react-router-dom";
 import AdminLayout from "layouts/Admin.jsx";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "assets/scss/paper-dashboard.scss?v=1.1.0";
 import "assets/demo/demo.css";
 import "perfect-scrollbar/css/perfect-scrollbar.css";
+import {UrlProvider} from "./contexts";
 
 const hist = createBrowserHistory();
+const url = window.location.href.replace(window.location.hash,"");
 
-ReactDOM.render(
-  <Router history={hist}>
-      <Route path="/" render={props => <AdminLayout {...props} />} />
-  </Router>,
-  document.getElementById("root")
+ReactDOM.render((
+    <UrlProvider.Provider value={url}>
+        <HashRouter history={hist}>
+            <Route path="/" render={props => <AdminLayout {...props} />} />
+        </HashRouter>
+    </UrlProvider.Provider>
+    ), document.getElementById("root")
 );
