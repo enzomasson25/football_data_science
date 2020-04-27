@@ -13,9 +13,11 @@
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
+* Improved for the sake of this project
 */
 import React from "react";
 import classnames from "classnames";
+import routes from "routes.js";
 import {
   Button,
   Collapse,
@@ -56,6 +58,28 @@ class AdminNavbar extends React.Component {
       document.documentElement.classList.toggle("nav-open");
     }
   }
+
+  getPageName = () => {
+    const { location } = this.props
+    const path = location.pathname
+    return this.getTitleFromRoutes(routes, path)
+  }
+
+  getTitleFromRoutes(routes, path) {
+    for (let i = 0; i < routes.length; i++) {
+      const route = routes[i]
+      if (route.path && path.match(new RegExp(`${route.path.replace(/:[^/?#]+/, '[^/?#]+')}$`))) {
+        return route.name
+      }
+      if (route.items !== undefined) {
+        const title = this.getTitleFromRoutes(route.items, path)
+        if (title) return title
+      }
+    }
+
+    return null
+  }
+
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
   updateColor = () => {
     if (window.innerWidth < 993 && this.state.collapseOpen) {
@@ -123,9 +147,9 @@ class AdminNavbar extends React.Component {
               </div>
               <NavbarBrand href="#pablo" onClick={e => e.preventDefault()}>
                 <span className="d-none d-md-block">
-                  Paper Dashboard PRO React
+                  {this.getPageName()}
                 </span>
-                <span className="d-block d-md-none">PD PRO React</span>
+                <span className="d-block d-md-none">{this.getPageName()}</span>
               </NavbarBrand>
             </div>
             <button

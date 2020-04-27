@@ -1,12 +1,33 @@
 import React, {useEffect, useState} from 'react'
+import PropTypes from 'prop-types'
 import useAxios from 'axios-hooks'
 import Papa from 'papaparse'
-import { Card, CardImg, CardBody, CardTitle, CardText, Button } from 'reactstrap';
-import { Row, Col } from "reactstrap";
+import {Button, Card, CardBody, CardImg, CardTitle, Col, Row} from 'reactstrap';
+import {createUseStyles} from "react-jss";
+import {Parallax} from "react-parallax";
 
+const useStyles = createUseStyles({
+    parallax: {
+        marginTop: 63
+    },
+    teamLogo: {
+        height: "15em",
+        width: "15em",
+        margin: "1em",
+    },
+    insideStyles: {
+        background: "white",
+        padding: 20,
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%,-50%)"
+    }
+})
 
-const League = ({league, image}) => {
-    const [{ csv, csvErrors, meta, loading, error }, refetch] = useCSV(
+const League = ({league, image, mainPanel}) => {
+    const classes = useStyles()
+    const [{ csv, loading, error }] = useCSV(
         '/teams.csv',
         league
     )
@@ -16,24 +37,37 @@ const League = ({league, image}) => {
 
 
     return (
-        <div className="content">
-            <img src={image}/>
-            {csv ? (
-                <Row>
-                    {csv.map(team => (
-                        <Col key={team.squad} sm={12} md={3}>
-                            <Card style={{width: '20rem'}}>
-                                <CardImg top src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22320%22%20height%3D%22180%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20320%20180%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_16164ef782f%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A16pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_16164ef782f%22%3E%3Crect%20width%3D%22320%22%20height%3D%22180%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22119.0859375%22%20y%3D%2297.35%22%3E320x180%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="..."/>
-                                <CardBody>
-                                    <CardTitle>{team.squad}</CardTitle>
-                                    <Button color="primary">Page de l'équipe</Button>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    ))}
-                </Row>
-            ) : ''}
-        </div>
+        <>
+            <div className={classes.parallax}>
+                <Parallax
+                    bgImage={image}
+                    strength={500}
+                    blur={{ min: -15, max: 20 }}
+                    parent={mainPanel.current}
+                >
+                    <div style={{ height: 500 }} />
+                </Parallax>
+            </div>
+            <div className="content">
+                {csv ? (
+                    <Row>
+                        {csv.map(team => (
+                            <Col key={team.squad} sm={12} md={3}>
+                                <Card style={{width: '20rem'}} >
+                                    <Row className="justify-content-md-center">
+                                            <CardImg top src={team.logo} alt="..." className={classes.teamLogo} />
+                                    </Row>
+                                    <CardBody>
+                                        <CardTitle>{team.squad}</CardTitle>
+                                        <Button color="primary">Page de l'équipe</Button>
+                                    </CardBody>
+                                </Card>
+                            </Col>
+                        ))}
+                    </Row>
+                ) : ''}
+            </div>
+        </>
     )
 }
 
@@ -57,6 +91,12 @@ const useCSV = (url, league) => {
         meta: parsed.meta,
         loading, error
     }, refetch]
+}
+
+League.propTypes = {
+    image: PropTypes.string.isRequired,
+    league: PropTypes.string.isRequired,
+    mainPanel: PropTypes.shape({ current: PropTypes.instanceOf(Element) }),
 }
 
 export default League

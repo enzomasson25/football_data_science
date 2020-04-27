@@ -15,12 +15,10 @@
 
 */
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { Nav, Collapse } from "reactstrap";
+import {NavLink} from "react-router-dom";
+import {Collapse, Nav} from "reactstrap";
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
-
-import avatar from "assets/img/faces/ayo-ogunseinde-2.jpg";
 import logo from "assets/img/react-logo.png";
 
 var ps;
