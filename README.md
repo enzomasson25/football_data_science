@@ -21,3 +21,30 @@ From this website we will gathered different informations to make a dataset :
 When you rune the file equipe.py, it generate a csv file containing the informations previously detailled, and here's what you get : 
 
 ![Image of csv](img/csv.png)
+
+## Set up
+
+### Requirements
+ - Python 3.6 or higher
+ - NodeJS
+ - yarn
+
+### Installation
+Run the following commands
+
+```bash
+pip install -r requirements.txt
+cd js
+yarn
+```
+
+### Run the programs
+
+To collect date, you can launch `equipe.py` and `joueurs_enzo.py`, resulting csv will be stored inside the `js/public`
+directory.
+
+To launch the website, run the following commands:
+```bash
+cd js
+yarn start
+```
