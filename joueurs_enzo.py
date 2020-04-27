@@ -70,7 +70,7 @@ while True :
                     try:
                         if (len(infos)==13 and infos[0].a.text == '2019/2020'):
                             player_entry.update([
-                                    ('League',infos[2].span.text),
+                                    ('League',infos[2].a['title']),
                                     ('Min',infos[3].text),
                                     ('App',infos[4].text),
                                     ('Lineup start',infos[5].text),
