@@ -54,9 +54,9 @@ const League = ({league, image, mainPanel}) => {
                 {csv ? (
                     <Row>
                         {csv.map(team => (
-                            <Col key={team.squad} sm={12} md={3}>
-                                <Card style={{width: '20rem'}} >
-                                    <Row className="justify-content-md-center">
+                            <Col key={team.squad} xs={12} sm={6} md={4} xl={3}>
+                                <Card>
+                                    <Row className="justify-content-center">
                                             <CardImg top src={team.logo} alt="..." className={classes.teamLogo} />
                                     </Row>
                                     <CardBody>
