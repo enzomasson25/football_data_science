@@ -68,7 +68,7 @@ class AdminNavbar extends React.Component {
   getTitleFromRoutes(routes, path) {
     for (let i = 0; i < routes.length; i++) {
       const route = routes[i]
-      if (route.path && path.match(new RegExp(`${route.path.replace(/:[^/?#]+/, '[^/?#]+')}$`))) {
+      if (route.path && path.match(new RegExp(`${route.path.replace(/:[^/?#]+/, '[^/?#]+')}`))) {
         return route.name
       }
       if (route.items !== undefined) {

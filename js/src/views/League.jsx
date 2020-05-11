@@ -6,6 +6,8 @@ import {Button, Card, CardBody, CardImg, CardTitle, Col, Row} from 'reactstrap';
 import {createUseStyles} from "react-jss";
 import {Parallax} from "react-parallax";
 import {UrlProvider} from "../contexts";
+import {Link} from "react-router-dom";
+import {teamCSV, teamImgUrl, teamLeague, teamName} from "../csv-properties";
 
 const useStyles = createUseStyles({
     parallax: {
@@ -16,21 +18,13 @@ const useStyles = createUseStyles({
         width: "15em",
         margin: "1em",
     },
-    insideStyles: {
-        background: "white",
-        padding: 20,
-        position: "absolute",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%,-50%)"
-    }
 })
 
 const League = ({league, image, mainPanel}) => {
     const url = useContext(UrlProvider)
     const classes = useStyles()
     const [{ csv, loading, error }] = useCSV(
-        url + '/teams.csv',
+        url + teamCSV,
         league
     )
 
@@ -54,14 +48,16 @@ const League = ({league, image, mainPanel}) => {
                 {csv ? (
                     <Row>
                         {csv.map(team => (
-                            <Col key={team.squad} xs={12} sm={6} md={4} xl={3}>
+                            <Col key={team[teamName]} xs={12} sm={6} md={4} xl={3}>
                                 <Card>
                                     <Row className="justify-content-center">
-                                            <CardImg top src={team.logo} alt="..." className={classes.teamLogo} />
+                                            <CardImg top src={team[teamImgUrl]} alt={team[teamName]} className={classes.teamLogo} />
                                     </Row>
                                     <CardBody>
-                                        <CardTitle>{team.squad}</CardTitle>
-                                        <Button color="primary">Page de l'équipe</Button>
+                                        <CardTitle>{team[teamName]}</CardTitle>
+                                        <Link to={`/teams/${team[teamName].replace(' ', '-')}`}>
+                                            <Button color="primary">Page de l'équipe</Button>
+                                        </Link>
                                     </CardBody>
                                 </Card>
                             </Col>
@@ -82,7 +78,8 @@ const useCSV = (url, league) => {
             const parsed = Papa.parse(data, {
                 header: true
             })
-            parsed.data = parsed.data.filter(i => i.comp === league)
+
+            parsed.data = parsed.data.filter(i => i[teamLeague] === league)
             setParsed(parsed)
         }
     }, [data, league])
