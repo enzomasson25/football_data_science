@@ -75,7 +75,7 @@ while True :
                                ("Left_corner",rowsStats2[13].a.text),
                                ("Right_corner",rowsStats2[14].a.text),
                                ("XI_average_age",rowsStats2[5].text[23:]),
-                               ("Team_average_age",rowsStats2[6].text[23:]),
+                               ("Team_average_age",rowsStats2[6].text[22:]),
                                ("Transfert_budget",rowsStats2[4].text[16:]),
                                ("Home_stadium",rowsStats2[0].text[12:]),
                                ("Rival_team",rowsStats2[1].a.text)
