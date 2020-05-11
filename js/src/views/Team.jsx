@@ -96,7 +96,7 @@ const useTeam = (teamUrl) => {
                 header: true
             })
 
-            parsed.data = parsed.data.filter(i => i[teamName] !== undefined && i[teamName].replace(' ', '-') === teamUrl)
+            parsed.data = parsed.data.filter(i => i[teamName] !== undefined && i[teamName].replace(/ /g, '-') === teamUrl)
             setParsed(parsed.data[0] || null)
         }
     }, [data, teamUrl])

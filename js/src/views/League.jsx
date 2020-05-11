@@ -55,7 +55,7 @@ const League = ({league, image, mainPanel}) => {
                                     </Row>
                                     <CardBody>
                                         <CardTitle>{team[teamName]}</CardTitle>
-                                        <Link to={`/teams/${team[teamName].replace(' ', '-')}`}>
+                                        <Link to={`/teams/${team[teamName].replace(/ /g, '-')}`}>
                                             <Button color="primary">Page de l'équipe</Button>
                                         </Link>
                                     </CardBody>
